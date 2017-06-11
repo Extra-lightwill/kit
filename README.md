@@ -8,6 +8,12 @@ Entry browser: https://github.com/Extra-lightwill/kit/blob/master/kit/entry/brow
 
 Entry server: https://github.com/Extra-lightwill/kit/blob/master/kit/entry/server.js 
 
+---------
 
+References: 
+
+https://github.com/apollographql/relay-modern-hello-world 
+
+https://github.com/taion/relay-todomvc/tree/found-modern 
 
 
