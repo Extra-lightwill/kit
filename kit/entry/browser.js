@@ -34,13 +34,20 @@ import createNewStore from 'kit/lib/redux';
 // you can start editing to add your own code
 import App from 'src/app';
 
+import {
+  QueryRenderer,
+  graphql
+} from 'react-relay';
+
+import environment from '../lib/createRelayEnvironment';
+
 // ----------------------
 
 // Create a new browser Apollo client
-const client = browserClient();
+//const client = browserClient();
 
 // Create a new Redux store
-const store = createNewStore(client);
+//const store = createNewStore(client);
 
 // Create the 'root' entry point into the app.  If we have React hot loading
 // (i.e. if we're in development), then we'll wrap the whole thing in an
@@ -61,12 +68,15 @@ function doRender() {
 const Root = (() => {
   // Wrap the component hierarchy in <BrowserRouter>, so that our children
   // can respond to route changes
-  const Chain = () => (
-    <ApolloProvider store={store} client={client}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ApolloProvider>
+     const Chain = () => (
+     <BrowserRouter>
+        <QueryRenderer
+          environment={environment}
+          render={({error, props}) => {
+            return <App />;
+          }}
+        /> 
+    </BrowserRouter>
   );
 
   // React hot reloading -- only enabled in development.  This branch will
