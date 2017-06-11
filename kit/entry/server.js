@@ -102,19 +102,17 @@ export function createReactHandler(css = [], scripts = [], chunkManifest = {}) {
     const routeContext = {};
 
     // Create a new server Apollo client for this request
-    const client = serverClient();
+    //const client = serverClient();
 
     // Create a new Redux store for this request
-    const store = createNewStore(client);
+    //const store = createNewStore(client);
 
     // Generate the HTML from our React tree.  We're wrapping the result
     // in `react-router`'s <StaticRouter> which will pull out URL info and
     // store it in our empty `route` object
     const components = (
       <StaticRouter location={ctx.request.url} context={routeContext}>
-        <ApolloProvider store={store} client={client}>
           <App />
-        </ApolloProvider>
       </StaticRouter>
     );
 

@@ -34,12 +34,12 @@ import createNewStore from 'kit/lib/redux';
 // you can start editing to add your own code
 import App from 'src/app';
 
-import {
+/*import {
   QueryRenderer,
   graphql
 } from 'react-relay';
 
-import environment from '../lib/createRelayEnvironment';
+import environment from '../lib/createRelayEnvironment';*/
 
 // ----------------------
 
@@ -70,19 +70,7 @@ const Root = (() => {
   // can respond to route changes
      const Chain = () => (
      <BrowserRouter>
-        <QueryRenderer
-          environment={environment}
-          query={graphql`
-            query AppFeedQuery {
-              feed (type: NEW, limit: 5) {
-                ...Feed
-              }
-            }
-          `}
-          render={({error, props}) => {
-            return <App />;
-          }}
-        /> 
+       <App />
     </BrowserRouter>
   );
 
