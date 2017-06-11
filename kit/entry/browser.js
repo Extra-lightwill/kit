@@ -72,6 +72,13 @@ const Root = (() => {
      <BrowserRouter>
         <QueryRenderer
           environment={environment}
+          query={graphql`
+            query AppFeedQuery {
+              feed (type: NEW, limit: 5) {
+                ...Feed
+              }
+            }
+          `}
           render={({error, props}) => {
             return <App />;
           }}
